@@ -1,29 +1,28 @@
 //task 1
 const obj = { name: 'мечник', health: 10, level: 2, attack: 80, defence: 40 };
 
-function orderByProps(obj, keys) {
+export default function orderByProps(obj, keys) {
     let m = [];
-    let c = [];
+    let s = [];
     for (const k in obj) {
         m.push({ key: k, value: obj[k] });
     };
 
     keys.forEach(element => {
-        c.push({ key: element, value: obj[element] });
+        s.push({ key: element, value: obj[element] });
     });
 
     m = sorter(m);
-    console.log(m);
     m.forEach(el => {
-        if (c.find(ithem => ithem.key === el.key) === undefined) {
-            c.push(el);
+        if (s.find(ithem => ithem.key === el.key) === undefined) {
+            s.push(el);
         }
     });
 
-    console.log(c);
+    return s;
 }
 
-function sorter(list) {
+export function sorter(list) {
     list.sort(function (a, b) {
         var nameA = a.key.toLowerCase(), nameB = b.key.toLowerCase();
         if (nameA < nameB)
@@ -31,12 +30,11 @@ function sorter(list) {
         if (nameA > nameB)
             return 1
         return 0
-    })
+    });
     return list;
-
 }
 
-orderByProps(obj, ["name", "level"]);
+// orderByProps(obj, ["name", "level"]);
 
 // task 2
 let hits = {
@@ -62,11 +60,11 @@ let hits = {
     ]
 };
 
-function getHits(hits) {
+export function getHits(hits) {
     let listHits = [];
-    for (let { special: { id: id, name: n, icon: i, description: d } } of hits) {
-        console.log([id, n, i, d]);
-        hits.push([id, n, i, d]);
+
+    for (let { id, name, icon, description = "Описание недоступно" } of hits.special) {
+        listHits.push([id, name, icon, description]);
     }
     return listHits
 }

@@ -1,0 +1,56 @@
+Html Webpack Plugin:
+<pre>
+  Error: html-webpack-plugin could not minify the generated output.
+  In production mode the html minifcation is enabled by default.
+  If you are not generating a valid html output please disable it manually.
+  You can do so by adding the following setting to your HtmlWebpackPlugin config:
+  |
+  |    minify: false
+  |
+  See https://github.com/jantimon/html-webpack-plugin#options for details.
+  For parser dedicated bugs please create an issue here:
+  https://danielruf.github.io/html-minifier-terser/
+  Parse Error: <script src=function orderByProps(obj, keys) {
+    let m = [];
+    let s = [];
+    for (const k in obj) {
+      m.push({
+        key: k,
+        value: obj[k]
+      });
+    }
+    ;
+    keys.forEach(element => {
+      s.push({
+        key: element,
+        value: obj[element]
+      });
+    });
+    m = sorter(m);
+    m.forEach(el => {
+      if (s.find(ithem => ithem.key === el.key) === undefined) {
+        s.push(el);
+      }
+    });
+    return s;
+  }></script> <script src="main.js"></script></body> </html>
+  
+  - htmlparser.js:244 new HTMLParser
+    [properties]/[html-minifier-terser]/src/htmlparser.js:244:13
+  
+  - htmlminifier.js:993 minify
+    [properties]/[html-minifier-terser]/src/htmlminifier.js:993:3
+  
+  - htmlminifier.js:1354 Object.exports.minify
+    [properties]/[html-minifier-terser]/src/htmlminifier.js:1354:16
+  
+  - index.js:993 HtmlWebpackPlugin.minifyHtml
+    [properties]/[html-webpack-plugin]/index.js:993:46
+  
+  - index.js:422 HtmlWebpackPlugin.postProcessHtml
+    [properties]/[html-webpack-plugin]/index.js:422:40
+  
+  - index.js:247 
+    [properties]/[html-webpack-plugin]/index.js:247:25
+  
+</pre>
