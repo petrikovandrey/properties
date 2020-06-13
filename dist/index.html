@@ -11,24 +11,26 @@ Html Webpack Plugin:
   For parser dedicated bugs please create an issue here:
   https://danielruf.github.io/html-minifier-terser/
   Parse Error: <script src=function orderByProps(obj, keys) {
-    let m = [];
-    let s = [];
-    for (const k in obj) {
+    var m = [];
+    var s = [];
+    for (var k in obj) {
       m.push({
         key: k,
         value: obj[k]
       });
     }
     ;
-    keys.forEach(element => {
+    keys.forEach(function (element) {
       s.push({
         key: element,
         value: obj[element]
       });
     });
     m = sorter(m);
-    m.forEach(el => {
-      if (s.find(ithem => ithem.key === el.key) === undefined) {
+    m.forEach(function (el) {
+      if (s.find(function (ithem) {
+        return ithem.key === el.key;
+      }) === undefined) {
         s.push(el);
       }
     });

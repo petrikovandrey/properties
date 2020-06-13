@@ -1,4 +1,4 @@
-// import { getHits, sorter, orderByProps } from "../src/index.js";
+import { getHits, sorter } from "../src/index.js";
 import orderByProps from "../src/index.js";
 
 test("sort with condition", () => {
@@ -55,17 +55,16 @@ test("getHits", () => {
         ]
     };
     const result = getHits(hits);
-    const expected = [ {
-        id: 8,
-        name: 'Двойной выстрел',
-        icon: 'http://...',
-        description: 'Двойной выстрел наносит двойной урон'
-    },
-    {
-        id: 9,
-        name: 'Нокаутирующий удар',
-        icon: 'http://...',
-        description: 'Описание недоступно'
-    }]
+    const expected = [[
+        8,
+        'Двойной выстрел',
+        'http://...',
+        'Двойной выстрел наносит двойной урон'],
+    [
+        9,
+        'Нокаутирующий удар',
+        'http://...',
+        'Описание недоступно'
+    ]]
     expect(result).toEqual(expected);
 })
